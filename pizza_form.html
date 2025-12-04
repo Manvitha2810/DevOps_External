@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Pizza Order Form</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: Arial, sans-serif; padding: 24px; max-width:450px; margin:auto; }
+    label { display:block; margin-top:10px; font-size:14px; }
+    select, input { width:100%; padding:8px; margin-top:4px; box-sizing:border-box; }
+    button { margin-top:14px; padding:10px 15px; cursor:pointer; }
+  </style>
+</head>
+<body>
+
+  <h2>Pizza Order Form</h2>
+
+  <form id="pizzaForm" onsubmit="return placeOrder(event)">
+
+    <label for="name">Customer Name</label>
+    <input type="text" id="name" required>
+
+    <label for="size">Select Pizza Size</label>
+    <select id="size" required>
+      <option value="">Choose size</option>
+      <option>Small</option>
+      <option>Medium</option>
+      <option>Large</option>
+    </select>
+
+    <label for="toppings">Choose Toppings</label>
+    <select id="toppings" multiple>
+      <option>Cheese</option>
+      <option>Pepperoni</option>
+      <option>Mushrooms</option>
+      <option>Olives</option>
+      <option>Jalapenos</option>
+    </select>
+
+    <button type="submit">Place Order</button>
+
+    <p id="msg" style="color:green; font-size:14px; margin-top:10px;"></p>
+  </form>
+
+  <script>
+    function placeOrder(e){
+      e.preventDefault();
+      document.getElementById('msg').textContent =
+        "Your pizza order has been placed successfully!";
+      return false;
+    }
+  </script>
+
+</body>
+</html>
